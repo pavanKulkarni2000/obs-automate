@@ -1,0 +1,4 @@
+/vol/obs-automate/build/CMakeFiles/edit_cache.dir
+/vol/obs-automate/build/CMakeFiles/rebuild_cache.dir
+/vol/obs-automate/build/CMakeFiles/scene_switch_app.dir
+/vol/obs-automate/build/CMakeFiles/simple_obs_app.dir

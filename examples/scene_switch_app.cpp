@@ -10,19 +10,24 @@
 #include "Scene.hpp"
 #include "Source.hpp"
 
+#define appp_output_file "/data/sample/app2.mkv"
+
+using namespace std;
+
 int gTraceLevel = TRACE_LEVEL_TRACE;
 int gTraceFormat = TRACE_FORMAT_TEXT;
 
 int main(int argc, char *argv[]) {
     if(argc < 3) {
-        std::cout << "Usage: ./scene_switch_app <file1> <file2>";
+        cout << "Usage: ./scene_switch_app <file1> <file2>";
         exit(1);
     }
-    std::string   local_file1(argv[1]);
-    std::string   local_file2(argv[2]);
-    std::string   show_name("SceneSwitchShow");
+    string   local_file1(argv[1]);
+    string   local_file2(argv[2]);
+    string   show_name("SceneSwitchShow");
     obs_output_t*   output;
 	obs_data_t*     ffmpeg_mux_settings;
+    
 	QApplication app(argc, argv);
 	ObsInit();
 
@@ -87,7 +92,7 @@ int main(int argc, char *argv[]) {
 		return -1;
 	}
 
-	obs_data_set_string(ffmpeg_mux_settings, "path", "/root/out.mkv");
+	obs_data_set_string(ffmpeg_mux_settings, "path", appp_output_file );
 	
 
     output = obs_output_create("ffmpeg_muxer", "Ffmpeg Muxer", ffmpeg_mux_settings, nullptr);
@@ -112,7 +117,7 @@ int main(int argc, char *argv[]) {
 		trace_error("obs_output_start failed");
 	}
 
-    std::string scene_names[] = {"scene1", "scene2"};
+    string scene_names[] = {"scene1", "scene2"};
 	// SLeep for 1000 seconds
 	for(int i = 0; i < 200; i++) {
 		usleep(5000000);

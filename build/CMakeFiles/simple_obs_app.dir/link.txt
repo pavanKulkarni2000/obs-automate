@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++17  -rdynamic CMakeFiles/simple_obs_app.dir/examples/simple_obs_app.cpp.o  -o simple_obs_app  /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8 -lobs /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8 

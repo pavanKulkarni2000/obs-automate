@@ -41,7 +41,7 @@ obs_source_t*  setSceneAndSource() {
 
 	trace_debug("create ffmpeg src");
 
-	obs_data_set_string(obs_data, "local_file", "/data/sb_media/ChevyCruze_30s_ts.mkv");
+	obs_data_set_string(obs_data, "local_file", "/vol/sample/sample1.mkv");
 	obs_data_set_bool(obs_data, "is_local_file", true);
 	obs_data_set_bool(obs_data, "looping", true);
 	obs_data_set_bool(obs_data, "hw_decode", false);
@@ -213,7 +213,7 @@ int studioInit() {
 		return -1;
 	}
 
-	obs_data_set_string(ffmpeg_mux_settings, "path", "/root/out.mkv");
+	obs_data_set_string(ffmpeg_mux_settings, "path", "/vol/sample/app1.mkv");
 	
 
     output = obs_output_create("ffmpeg_muxer", "Ffmpeg Muxer", ffmpeg_mux_settings, nullptr);
