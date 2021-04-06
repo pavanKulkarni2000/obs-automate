@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named browser_src_app
+
+# Build rule for target.
+browser_src_app: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 browser_src_app
+.PHONY : browser_src_app
+
+# fast build rule for target.
+browser_src_app/fast:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/build
+.PHONY : browser_src_app/fast
+
+#=============================================================================
 # Target rules for targets named scene_switch_app
 
 # Build rule for target.
@@ -135,6 +148,33 @@ simple_obs_app: cmake_check_build_system
 simple_obs_app/fast:
 	$(MAKE) -f CMakeFiles/simple_obs_app.dir/build.make CMakeFiles/simple_obs_app.dir/build
 .PHONY : simple_obs_app/fast
+
+examples/browser_src_app.o: examples/browser_src_app.cpp.o
+
+.PHONY : examples/browser_src_app.o
+
+# target to build an object file
+examples/browser_src_app.cpp.o:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/examples/browser_src_app.cpp.o
+.PHONY : examples/browser_src_app.cpp.o
+
+examples/browser_src_app.i: examples/browser_src_app.cpp.i
+
+.PHONY : examples/browser_src_app.i
+
+# target to preprocess a source file
+examples/browser_src_app.cpp.i:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/examples/browser_src_app.cpp.i
+.PHONY : examples/browser_src_app.cpp.i
+
+examples/browser_src_app.s: examples/browser_src_app.cpp.s
+
+.PHONY : examples/browser_src_app.s
+
+# target to generate assembly for a file
+examples/browser_src_app.cpp.s:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/examples/browser_src_app.cpp.s
+.PHONY : examples/browser_src_app.cpp.s
 
 examples/scene_switch_app.o: examples/scene_switch_app.cpp.o
 
@@ -196,6 +236,7 @@ src/Encoder.o: src/Encoder.cpp.o
 
 # target to build an object file
 src/Encoder.cpp.o:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/Encoder.cpp.o
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/Encoder.cpp.o
 .PHONY : src/Encoder.cpp.o
 
@@ -205,6 +246,7 @@ src/Encoder.i: src/Encoder.cpp.i
 
 # target to preprocess a source file
 src/Encoder.cpp.i:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/Encoder.cpp.i
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/Encoder.cpp.i
 .PHONY : src/Encoder.cpp.i
 
@@ -214,6 +256,7 @@ src/Encoder.s: src/Encoder.cpp.s
 
 # target to generate assembly for a file
 src/Encoder.cpp.s:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/Encoder.cpp.s
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/Encoder.cpp.s
 .PHONY : src/Encoder.cpp.s
 
@@ -223,6 +266,7 @@ src/ObsUtils.o: src/ObsUtils.cpp.o
 
 # target to build an object file
 src/ObsUtils.cpp.o:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/ObsUtils.cpp.o
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/ObsUtils.cpp.o
 .PHONY : src/ObsUtils.cpp.o
 
@@ -232,6 +276,7 @@ src/ObsUtils.i: src/ObsUtils.cpp.i
 
 # target to preprocess a source file
 src/ObsUtils.cpp.i:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/ObsUtils.cpp.i
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/ObsUtils.cpp.i
 .PHONY : src/ObsUtils.cpp.i
 
@@ -241,6 +286,7 @@ src/ObsUtils.s: src/ObsUtils.cpp.s
 
 # target to generate assembly for a file
 src/ObsUtils.cpp.s:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/ObsUtils.cpp.s
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/ObsUtils.cpp.s
 .PHONY : src/ObsUtils.cpp.s
 
@@ -250,6 +296,7 @@ src/Scene.o: src/Scene.cpp.o
 
 # target to build an object file
 src/Scene.cpp.o:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/Scene.cpp.o
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/Scene.cpp.o
 .PHONY : src/Scene.cpp.o
 
@@ -259,6 +306,7 @@ src/Scene.i: src/Scene.cpp.i
 
 # target to preprocess a source file
 src/Scene.cpp.i:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/Scene.cpp.i
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/Scene.cpp.i
 .PHONY : src/Scene.cpp.i
 
@@ -268,6 +316,7 @@ src/Scene.s: src/Scene.cpp.s
 
 # target to generate assembly for a file
 src/Scene.cpp.s:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/Scene.cpp.s
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/Scene.cpp.s
 .PHONY : src/Scene.cpp.s
 
@@ -277,6 +326,7 @@ src/Show.o: src/Show.cpp.o
 
 # target to build an object file
 src/Show.cpp.o:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/Show.cpp.o
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/Show.cpp.o
 .PHONY : src/Show.cpp.o
 
@@ -286,6 +336,7 @@ src/Show.i: src/Show.cpp.i
 
 # target to preprocess a source file
 src/Show.cpp.i:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/Show.cpp.i
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/Show.cpp.i
 .PHONY : src/Show.cpp.i
 
@@ -295,6 +346,7 @@ src/Show.s: src/Show.cpp.s
 
 # target to generate assembly for a file
 src/Show.cpp.s:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/Show.cpp.s
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/Show.cpp.s
 .PHONY : src/Show.cpp.s
 
@@ -304,6 +356,7 @@ src/Source.o: src/Source.cpp.o
 
 # target to build an object file
 src/Source.cpp.o:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/Source.cpp.o
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/Source.cpp.o
 .PHONY : src/Source.cpp.o
 
@@ -313,6 +366,7 @@ src/Source.i: src/Source.cpp.i
 
 # target to preprocess a source file
 src/Source.cpp.i:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/Source.cpp.i
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/Source.cpp.i
 .PHONY : src/Source.cpp.i
 
@@ -322,6 +376,7 @@ src/Source.s: src/Source.cpp.s
 
 # target to generate assembly for a file
 src/Source.cpp.s:
+	$(MAKE) -f CMakeFiles/browser_src_app.dir/build.make CMakeFiles/browser_src_app.dir/src/Source.cpp.s
 	$(MAKE) -f CMakeFiles/scene_switch_app.dir/build.make CMakeFiles/scene_switch_app.dir/src/Source.cpp.s
 .PHONY : src/Source.cpp.s
 
@@ -332,9 +387,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... browser_src_app"
 	@echo "... rebuild_cache"
 	@echo "... scene_switch_app"
 	@echo "... simple_obs_app"
+	@echo "... examples/browser_src_app.o"
+	@echo "... examples/browser_src_app.i"
+	@echo "... examples/browser_src_app.s"
 	@echo "... examples/scene_switch_app.o"
 	@echo "... examples/scene_switch_app.i"
 	@echo "... examples/scene_switch_app.s"

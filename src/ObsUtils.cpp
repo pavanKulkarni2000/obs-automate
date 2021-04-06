@@ -104,6 +104,11 @@ int ObsInit() {
         return -1;
 	}
 
+	if(0 != loadModule(LIBOBS_PLUGINS_PATH "obs-browser.so", LIBOBS_PLUGINS_DATA_PATH "obs-browser")) {
+        trace_error("failed to load lib obs-browser.so");
+        return -1;
+	}
+
 	obs_post_load_modules();
 
 	trace_info("All is well");

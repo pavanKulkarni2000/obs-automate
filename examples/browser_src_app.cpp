@@ -10,7 +10,7 @@
 #include "Scene.hpp"
 #include "Source.hpp"
 
-#define app_output_file "/data/sample/app2.mkv"
+#define app_output_file "/data/sample/app3.mkv"
 
 using namespace std;
 
@@ -18,13 +18,12 @@ int gTraceLevel = TRACE_LEVEL_TRACE;
 int gTraceFormat = TRACE_FORMAT_TEXT;
 
 int main(int argc, char *argv[]) {
-    if(argc < 3) {
-        cout << "Usage: ./scene_switch_app <file1> <file2>";
-        exit(1);
-    }
-    string   local_file1(argv[1]);
-    string   local_file2(argv[2]);
-    string   show_name("SceneSwitchShow");
+    // if(argc < 3) {
+    //     cout << "Usage: ./scene_switch_app <file1> <file2>";
+    //     exit(1);
+    // }
+    string url="https://www.google.com/";
+    string show_name="browserSource";
     obs_output_t*   output;
 	obs_data_t*     ffmpeg_mux_settings;
     
@@ -33,37 +32,25 @@ int main(int argc, char *argv[]) {
 
     // Create a file source
     SourceParams sourceParams = {
-        .name = "local_file_source_1",
-        .sourceType = LocalFile,
-        .url = local_file1
+        .name = "browser_source",
+        .sourceType = BrowserUrl,
+        .url = url
     };
     SceneParams  sceneParams = {
-        .name = "scene1"
+        .name = "scene"
     };
-    SourceParams sourceParams2 = {
-        .name = "local_file_source_2",
-        .sourceType = LocalFile,
-        .url = local_file2
-    };
-    SceneParams  sceneParams2 = {
-        .name = "scene2"
-    };
-    Source *source1 = new Source(&sourceParams); 
-    Scene *scene1 = new Scene(&sceneParams);
-    Source *source2 = new Source(&sourceParams2); 
-    Scene *scene2 = new Scene(&sceneParams2);
+    Source *source = new Source(&sourceParams); 
+    Scene *scene = new Scene(&sceneParams);
 
     Show *show = new Show(show_name);
     struct vec2 bounds = {1920, 1080};
-    scene1->AddSource(source1,  &bounds);
-    
-    scene2->AddSource(source2,  &bounds);
+    scene->AddSource(source,  &bounds);
+    show->AddScene(scene);
+    show->SetActiveScene("scene");
 
-    show->AddScene(scene1);
-    show->AddScene(scene2);
-    show->SetActiveScene("scene1");
 
-    //============= Create encoders ========================
+
+    // //============= Create encoders ========================
     Encoder *encoder = new Encoder();
     VideoEncParams videoParams = {
         .encoder_type = "obs_x264",
@@ -111,18 +98,15 @@ int main(int argc, char *argv[]) {
 	obs_output_set_video_encoder(output, encoder->GetVideoEncoder());
 	obs_output_set_audio_encoder(output, encoder->GetAudioEncoder(), 0);
 	
-    //obs_output_set_service(output, service);
+    // obs_output_set_service(output, service);
 
 	if(obs_output_start(output) != true) {
 		trace_error("obs_output_start failed");
 	}
 
-    string scene_names[] = {"scene1", "scene2"};
-	// SLeep for 1000 seconds
-	for(int i = 0; i < 200; i++) {
-		usleep(5000000);
-        show->SceneSwitch(scene_names[(i+1)%2]);
-        
+	// SLeep for 10 seconds
+	for(int i = 0; i < 10; i++) {
+		usleep(1000000);
 	}
 
 }

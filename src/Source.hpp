@@ -8,7 +8,8 @@
 enum SourceType {
 	InvalidType = -1,
 	LocalFile = 0,
-	RTMP
+	RTMP,
+    BrowserUrl
 };
 
 struct SourceParams {
@@ -27,6 +28,7 @@ class Source {
     obs_source_t   *obs_source_;
     private:
     obs_source_t* localFileSourceCreate(std::string name, std::string url, bool looping);
+    obs_source_t* browserUrlSourceCreate(std::string name, std::string url, bool is_local);
 
 };
 

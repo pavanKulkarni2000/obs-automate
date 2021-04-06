@@ -53,3 +53,18 @@ make
 
 1. https://github.com/a-rose/obs-headless
 2. https://github.com/muesli/obs-cli
+
+
+apt install libnss3-dev
+wget https://cdn-fastly.obsproject.com/downloads/cef_binary_3770_linux64.tar.bz2
+tar -xjf ./cef_binary_4280_linux64.tar.bz2
+git clone --recursive https://github.com/obsproject/obs-studio.git
+git checkout 26.0.2
+git submodule update --recursive
+cd obs-studio
+mkdir build && cd build
+# If you are on a modern debian platform (Ubuntu 2.10, Debian Sid) you can ENABLE_PIPEWIRE for wayland capture.
+cmake -DUNIX_STRUCTURE=1 -DENABLE_PIPEWIRE=OFF -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_BROWSER=ON -DCEF_ROOT_DIR="../../cef_binary_3770_linux64" ..
+make -j4
+checkinstall --default --pkgname=obs-studio --fstrans=no --backup=no --pkgversion="$(date +%Y%m%d)-git" --deldoc=yes
+ldconfig
