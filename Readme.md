@@ -52,9 +52,12 @@ make
 ## References
 
 1. https://github.com/a-rose/obs-headless
+{
+    installing ptotoc : https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
+}
 2. https://github.com/muesli/obs-cli
 
-
+# installing obs with browser
 apt install libnss3-dev
 wget https://cdn-fastly.obsproject.com/downloads/cef_binary_3770_linux64.tar.bz2
 tar -xjf ./cef_binary_4280_linux64.tar.bz2
@@ -68,3 +71,13 @@ cmake -DUNIX_STRUCTURE=1 -DENABLE_PIPEWIRE=OFF -DCMAKE_INSTALL_PREFIX=/usr -DBUI
 make -j4
 checkinstall --default --pkgname=obs-studio --fstrans=no --backup=no --pkgversion="$(date +%Y%m%d)-git" --deldoc=yes
 ldconfig
+
+
+# docker dns problem
+sudo apt-get install bridge-utils
+pkill docker
+iptables -t nat -F
+ifconfig docker0 down
+brctl delbr docker0
+service docker restart
+
