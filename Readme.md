@@ -60,7 +60,7 @@ make
 # installing obs with browser
 apt install libnss3-dev
 wget https://cdn-fastly.obsproject.com/downloads/cef_binary_3770_linux64.tar.bz2
-tar -xjf ./cef_binary_4280_linux64.tar.bz2
+tar -xjf ./cef_binary_3770_linux64.tar.bz2
 git clone --recursive https://github.com/obsproject/obs-studio.git
 git checkout 26.0.2
 git submodule update --recursive
